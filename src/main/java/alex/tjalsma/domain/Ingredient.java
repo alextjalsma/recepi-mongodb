@@ -1,7 +1,5 @@
 package alex.tjalsma.domain;
 
-import com.sun.javafx.beans.IDProperty;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -13,6 +11,9 @@ public class Ingredient {
     private Long id;
     private String descreption;
     private BigDecimal amount;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure uom;
 
     @ManyToOne
     private Recipe recipe;
@@ -47,5 +48,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure unitOfMeasure) {
+        this.uom = unitOfMeasure;
     }
 }

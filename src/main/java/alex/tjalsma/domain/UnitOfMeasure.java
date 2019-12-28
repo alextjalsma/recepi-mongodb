@@ -11,7 +11,7 @@ public class UnitOfMeasure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descreption;
+    private String description;
     public Long getId() {
         return id;
     }
@@ -20,11 +20,11 @@ public class UnitOfMeasure {
         this.id = id;
     }
 
-    public String getDescreption() {
-        return descreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescreption(String uom) {
-        this.descreption = uom;
+    public void setDescription(String uom) {
+        this.description = uom;
     }
 }

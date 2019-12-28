@@ -9,7 +9,7 @@ public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String descreption;
+    private String description;
     private BigDecimal amount;
 
     @OneToOne(fetch = FetchType.EAGER)
@@ -26,12 +26,12 @@ public class Ingredient {
         this.id = id;
     }
 
-    public String getDescreption() {
-        return descreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescreption(String descreption) {
-        this.descreption = descreption;
+    public void setDescription(String descreption) {
+        this.description = descreption;
     }
 
     public BigDecimal getAmount() {

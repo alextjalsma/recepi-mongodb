@@ -1,5 +1,6 @@
 package alex.tjalsma.domain;
 
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -10,7 +11,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descreption;
+    private String description;
 
     @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes;
@@ -23,12 +24,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getDescreption() {
-        return descreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescreption(String descreption) {
-        this.descreption = descreption;
+    public void setDescription(String descreption) {
+        this.description = descreption;
     }
 
     public Set<Recipe> getRecipes() {

@@ -10,7 +10,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String descreption;
+    private String description;
     private Integer prepTime;
     private Integer cookTime;
     private Integer servings;
@@ -44,12 +44,12 @@ public class Recipe {
         this.id = id;
     }
 
-    public String getDescreption() {
-        return descreption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescreption(String descreption) {
-        this.descreption = descreption;
+    public void setDescription(String descreption) {
+        this.description = descreption;
     }
 
     public Integer getPrepTime() {

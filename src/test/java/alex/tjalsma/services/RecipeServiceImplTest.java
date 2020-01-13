@@ -3,6 +3,7 @@ package alex.tjalsma.services;
 import alex.tjalsma.converters.RecipeCommandToRecipe;
 import alex.tjalsma.converters.RecipeToRecipeCommand;
 import alex.tjalsma.domain.Recipe;
+import alex.tjalsma.exceptions.NotFoundException;
 import alex.tjalsma.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
@@ -78,5 +80,17 @@ class RecipeServiceImplTest {
 
         // Then
         verify(recipeRepository, times(1)).deleteById(idToDelete);
+    }
+
+    @Test
+    public void getRecipeByIdTestNotFound() throws Exception {
+
+        Optional<Recipe> recipeOptional = Optional.empty();
+
+        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+
+        assertThrows(NotFoundException.class, () -> recipeService.findById(1L));
+
+        //should go boom
     }
 }
